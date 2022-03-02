@@ -1,0 +1,102 @@
+*  {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --acqua: rgb(127, 255, 212);
+}
+
+body {
+    background-color: var(--acqua);
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    height: 10vh;
+}
+
+header > div {
+    display: flex;
+    align-items: center;
+}
+
+header > div > img {
+    margin-right: 10px;
+}
+
+header div select {
+    padding-right: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+
+}
+
+header div button {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Main */
+
+main {
+    height: 85vh;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.grid {
+    
+    width: 500px;
+    height: 500px;
+    background-color: black;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: orange;
+    border: 1px solid black;
+}
+
+.small {
+    flex-basis: calc(100%/ 7);
+    height: calc(100% / 7);
+}
+
+.medium {
+    flex-basis: calc(100% / 9);
+    height: calc(100% / 9);
+}
+
+.big {
+    flex-basis: calc(100% / 10);
+    height: calc(100% / 10);
+}
+
+.change-color {
+    background-color: black;
+    color: white;
+}
+
+
+/* Footer */
+
+footer {
+    background-color: white;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+}
+
+footer div {
+    padding-left: 15%;
+}
