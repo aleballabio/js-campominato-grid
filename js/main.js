@@ -12,6 +12,7 @@ let buttonPlay = document.querySelector("#play");
 buttonPlay.addEventListener("click", play);
 
 function play() {
+    grid.innerHTML = ""
     grid.style.display = "flex";
     let difficultyValue = difficulty.value;
 
