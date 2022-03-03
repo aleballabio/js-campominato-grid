@@ -11,12 +11,16 @@ grid.style.display = "none";
 let buttonPlay = document.querySelector("#play");
 buttonPlay.addEventListener("click", play);
 
+
 function play() {
     grid.innerHTML = ""
     grid.style.display = "flex";
     let difficultyValue = difficulty.value;
 
+    //Difficutly of the Game
+
     switch (difficultyValue) {
+
         case "Facile":
             for (let times = 1; times <= 49; times++) {
                 const ElementCell = document.createElement("div");
@@ -25,11 +29,30 @@ function play() {
                 ElementCell.addEventListener("click", function () {
                     ElementCell.classList.add("change-color");
                 });
-
                 grid.append(ElementCell);
 
                 ElementCell.innerHTML += times;
             }
+
+            //Bombs
+
+            let finalCells = document.querySelectorAll(".cell");
+            let NumeriBombe = []
+            console.log(finalCells);
+
+            while (NumeriBombe.length < 16) {
+
+                const numberRandom = parseInt(randomNumber(1, finalCells.length))
+                console.log(numberRandom)
+
+                if (NumeriBombe.includes(numberRandom)) {
+
+                } else {
+                    NumeriBombe.push(numberRandom);
+                    console.log(numberRandom)
+                }
+            }
+            console.log(NumeriBombe)
             break;
 
         case "Medio":
@@ -68,4 +91,12 @@ function play() {
 
             break;
     }
+}
+
+
+
+//NumeriBombe
+
+function randomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
