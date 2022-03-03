@@ -25,9 +25,10 @@ function play() {
 
         case "Facile":
             score = 0
+            const NumeriBombe = generazioneBombe(49);
+            console.log(NumeriBombe);
 
             for (let times = 1; times <= 49; times++) {
-                finalCellsNumber.push(times)
 
                 const ElementCell = document.createElement("div");
                 ElementCell.classList.add("cell");
@@ -42,29 +43,6 @@ function play() {
 
                 ElementCell.innerHTML += times;
             }
-
-            //Bombs
-
-            const NumeriBombe = []
-
-            while (NumeriBombe.length < 16) {
-
-                const numberRandom = randomNumber(1, finalCellsNumber.length)
-                console.log(numberRandom)
-
-                if (NumeriBombe[numberRandom] == numberRandom) {
-
-                } else {
-                    NumeriBombe.push(numberRandom);
-                    console.log(numberRandom)
-                }
-            }
-
-            //Explosion
-
-            let queryCell = document.querySelectorAll(".cell");
-
-            queryCell.addEventListener("click", explosion);
 
             break;
 
@@ -112,4 +90,23 @@ function play() {
 
 function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+//Bombs
+
+function generazioneBombe(caselle) {
+    let arrBombs = []
+    while (arrBombs.length < 16) {
+
+        const numberRandom = randomNumber(1, caselle)
+        console.log(numberRandom)
+
+        if (arrBombs[numberRandom] == numberRandom) {
+
+        } else {
+            arrBombs.push(numberRandom);
+            console.log(numberRandom);
+        }
+    }
+    return arrBombs;
 }
