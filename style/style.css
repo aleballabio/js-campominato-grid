@@ -57,6 +57,7 @@ main {
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
+    border: solid black 1px;
 }
 
 .cell {

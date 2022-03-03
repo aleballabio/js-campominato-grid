@@ -16,19 +16,28 @@ function play() {
     grid.innerHTML = ""
     grid.style.display = "flex";
     let difficultyValue = difficulty.value;
+    const finalCellsNumber = []
+    let score = 0;
 
     //Difficutly of the Game
 
     switch (difficultyValue) {
 
         case "Facile":
+            score = 0
+
             for (let times = 1; times <= 49; times++) {
+                finalCellsNumber.push(times)
+
                 const ElementCell = document.createElement("div");
                 ElementCell.classList.add("cell");
                 ElementCell.classList.add("small");
                 ElementCell.addEventListener("click", function () {
-                    ElementCell.classList.add("change-color");
+                    ElementCell.style.backgroundColor = "green";
+                    score++;
+                    console.log(score);
                 });
+
                 grid.append(ElementCell);
 
                 ElementCell.innerHTML += times;
@@ -36,23 +45,27 @@ function play() {
 
             //Bombs
 
-            let finalCells = document.querySelectorAll(".cell");
-            let NumeriBombe = []
-            console.log(finalCells);
+            const NumeriBombe = []
 
             while (NumeriBombe.length < 16) {
 
-                const numberRandom = parseInt(randomNumber(1, finalCells.length))
+                const numberRandom = randomNumber(1, finalCellsNumber.length)
                 console.log(numberRandom)
 
-                if (NumeriBombe.includes(numberRandom)) {
+                if (NumeriBombe[numberRandom] == numberRandom) {
 
                 } else {
                     NumeriBombe.push(numberRandom);
                     console.log(numberRandom)
                 }
             }
-            console.log(NumeriBombe)
+
+            //Explosion
+
+            let queryCell = document.querySelectorAll(".cell");
+
+            queryCell.addEventListener("click", explosion);
+
             break;
 
         case "Medio":
